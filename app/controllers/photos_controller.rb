@@ -10,5 +10,12 @@ def index
   render({ :template => "photo_templates/index"})
 end
 
+def show
+  # Parameters: {"path_id"=>"777"}
+  url_id = params.fetch("path_id")
+  matching_photos = Photo.where ({ :id => url_id})
+  render({ :template => "photo_templates/show"})
+end
+
 end
  

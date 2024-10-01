@@ -51,6 +51,10 @@ redirect_to("/photos/" + a_new_photo.id.to_s)
   #render({ :template => "photo_templates/create"})
 end
 
+def update
+
+  render({ :template => "photo_templates/update"})
+end
 
 end
  

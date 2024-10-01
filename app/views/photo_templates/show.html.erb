@@ -23,14 +23,14 @@
 
   <dt>Edit photo</dt>
   <dd>
-    <form action="/update_photo/777">
+    <form action="/update_photo/<%= @the_photo.id %>">
       <label for="browser_image">Image</label>
-      <input id="browser_image" type ="text" name ="input_image" placeholder ="Enter a url..." value="">
+      <input id="browser_image" type ="text" name ="query_image" placeholder ="Enter a url..." value="<%= @the_photo.image %>">
       <label for="browser_caption">Caption</label>
-      <textarea id="browser_caption" name="input_caption" placeholder ="Enter a caption">Caption caption caption</textarea>
+      <textarea id="browser_caption" name="query_caption" placeholder ="Enter a caption"><%= @the_photo.caption %></textarea>
 
       <button>Update photo</button>
-    </form>
+    </form> 
   </dd>
 
 <dt>Delete photo</dt>

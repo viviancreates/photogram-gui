@@ -19,7 +19,17 @@ def show
 end
 
 def bye
-  render({ :template => "photo_templates/bye"})
+# Parameters: {"toast_id"=>"777"}
+
+  the_id = params.fetch("toast_id")
+
+  matching_photos = Photo.where({ :id => the_id })
+
+  the_photo = matching_photos.at(0)
+
+  the_photo.destroy
+
+  redirect_to("/photos")
 end
 
 end

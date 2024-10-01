@@ -11,8 +11,22 @@
     </th>
 
     <th>
-      <a href = "">Show details</a>
     </th>
-
   </tr>
+
+<% @list_of_users.eacg do |a_user| %>
+  <tr>
+    <td>
+      <%= @a_user.id %>
+    </td>
+
+    <td>
+      <%= @a_user.username %>
+    </td>
+
+    <td>
+      <a href = "">Show details </a>
+    </td>
+  </tr>
+<% end %>
 </table>

@@ -22,4 +22,17 @@ class UsersController < ApplicationController
     new_user.save
     redirect_to("/users/"+ new_user.username.to_s)
   end
+
+  def update
+    user_id = params.fetch("user_id")
+    new_username = params.fetch("new_username")
+
+    user = User.where(id: user_id).first
+    user.username = new_username
+    user.save
+
+    next_url = "/users/" + user.username
+
+    redirect_to(next_url)
+  end
 end

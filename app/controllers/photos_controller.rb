@@ -75,5 +75,23 @@ def update
   redirect_to(next_url)
 end
 
+def comment
+  input_photo_id = params.fetch("input_photo_id")
+  input_author_id = params.fetch("input_author_id")
+  input_body = params.fetch("input_body")
+
+  new_comment = Comment.new
+  new_comment.photo_id = input_photo_id
+  new_comment.author_id = input_author_id
+  new_comment.body = input_body
+  new_comment.save
+
+  matching_photos = Photo.where(id: input_photo_id)
+  the_photo = matching_photos.first
+
+  next_url = "/photos/" + the_photo.id.to_s
+  redirect_to(next_url)
+end
+
 end
  
